@@ -1,10 +1,11 @@
 import React, { useEffect, useState, createContext, useContext } from "react";
 import "./styles.css";
+import { capitalizeWords } from "./utils/capitalizeWords";
 
 const API_BASE_URL = "https://hp-api.onrender.com/api";
 
 // Contexts for Global State
-const FavoritesContext = createContext({
+export const FavoritesContext = createContext({
   favorites: [],
   toggleFavorite: () => {},
 });
@@ -109,11 +110,19 @@ export default function App() {
               <button onClick={() => setView("characters")}>Characters</button>
               <button onClick={() => setView("spells")}>Spells</button>
             </div>
-            {view !== "details" && (
+
+            {view === "spells" && (
+              <div className="nav-right">
+                <button onClick={() => setView("characters")}>Go Back</button>
+              </div>
+            )}
+
+            {view !== "details" && view !== "spells" && (
               <div className="nav-right">
                 <HouseSelector />
               </div>
             )}
+            
           </div>
 
           {/* Characters header and House Selector */}
@@ -140,33 +149,27 @@ export default function App() {
             <CharacterDetail character={selectedCharacter} setView={setView} />
           )}
 
-          {view === "spells" && <SpellList spells={spells} />}
+          {view === "spells" && <SpellList spells={spells} setView={setView} />}
         </div>
       </HouseContext.Provider>
     </FavoritesContext.Provider>
   );
 }
 
-// Capitalize Words
-function capitalizeWords(str) {
-  return str
-    .split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
-}
-
 // Characters List
 function CharacterList({ characters, onSelect }) {
+  console.log(characters);
   const { favorites, toggleFavorite } = useContext(FavoritesContext);
 
   return (
     <div>
-      <ul className="character-list">
+      <ul className="character-list" role="list">
         {characters.map((char) => (
           <li
             key={char.id}
             className={`character-item ${favorites.includes(char.id) ? "favorited" : ""}`}
             onClick={() => onSelect(char)}
+            data-testid="character-item"
           >
             <img src={char.image || "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"} alt={char.name} />
             <div className="character-title">
@@ -237,9 +240,9 @@ function HouseSelector() {
 }
 
 // Spells List
-function SpellList({ spells }) {
+function SpellList({ spells, setView }) {
   return (
-    <div>
+    <div className="spells-container">
       <h2>Spells</h2>
       {spells.length === 0 ? (
         <p>Loading spells or no spells found...</p>
@@ -256,3 +259,4 @@ function SpellList({ spells }) {
     </div>
   );
 }
+
