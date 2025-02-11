@@ -54,10 +54,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 90%;
-  max-width: 670px;
-  margin: 0 auto 20px;
+  max-width: 730px;
+  margin: 0;
+  margin-bottom: 0px;
+  margin-left: 0px;
   margin-bottom: 30px;
+  margin-left: 24px;
 }
 
 .house-selector select {
@@ -90,6 +92,7 @@ body {
   justify-content: center;
   max-width: 800px;
   margin: 0 auto;
+  padding-left: 0;
 }
 
 button {
@@ -237,6 +240,10 @@ button:hover {
     padding: 6px;
   }
 
+  .pagination button {
+    width: 80px;
+  }
+
   .app-title {
     font-size: 1.6em;
   }
@@ -274,3 +281,4 @@ button:hover {
     padding: 0 30px;
   }
 }
+
