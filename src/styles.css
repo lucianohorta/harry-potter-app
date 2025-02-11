@@ -1,0 +1,276 @@
+body {
+  font-family: "Harry P", sans-serif;
+  background-color: #222;
+  color: #fff;
+  text-align: center;
+}
+
+.app {
+  max-width: 800px;
+  margin: auto;
+}
+
+.app-title {
+  font-size: 1.8em;
+  padding: 0 40px;
+  line-height: 1.2em;
+}
+
+.characters-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+.characters-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.favorite-button {
+  align-self: center;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.favorite-button.active {
+  background-color: #fae8bc;
+  color: black;
+}
+
+
+/* Buttons and house selector in a row */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 670px;
+  margin: 0 auto 20px;
+  margin-bottom: 30px;
+}
+
+.house-selector select {
+  border: 0;
+  border-radius: 10px;
+  padding: 6px 15px;
+  margin-left: 5px;
+  background-color: #f0c75e;
+}
+
+.nav-left {
+  margin-left: 15px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.character-list-container {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.character-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+button {
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 0;
+  padding: 15px;
+  width: 110px;
+  background: #dab966;
+  font-weight: bold;
+  color: #372e29;
+}
+
+button:hover {
+  background-color: #fae8bc;
+}
+
+.pagination {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.pagination span {
+  padding: 0 3px;
+}
+
+.pagination button {
+  margin: 5px;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+.character-item {
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid #f0c75e70;
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.character-item.favorited {
+  background-color: #453e2c;
+}
+
+.character-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 12px rgba(250, 232, 188, 0.51);
+  border: 2px solid #f0c75eeb;
+}
+
+.character-item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: auto;
+}
+
+.character-item p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 9px 0;
+  text-align: center;
+  line-height: 1.3em;
+}
+
+.character-item button {
+  padding: 6px;
+  font-size: 14px;
+  margin-top: 5px;
+  background-color: #f0c75e;
+  border: none;
+  color: black;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.character-detail img {
+  width: 250px;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 20px auto;
+  max-height: 350px;
+  object-fit: cover;
+}
+
+.spell-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  list-style: none;
+}
+
+.spell-item {
+  background-color: #2e2e2e;
+  padding: 15px 30px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.spell-item:hover {
+  background-color: #fae8bc;
+  box-shadow: 0px 0px 15px rgba(250, 232, 188, 0.8);
+}
+
+.spell-item:hover strong, .spell-item:hover p {
+  color: black;
+}
+
+.spell-item strong {
+  font-size: 18px;
+  color: #ffd700;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.spell-item p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .character-item {
+    width: 140px;
+  }
+
+  .character-item button {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .app-title {
+    font-size: 1.6em;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-right {
+    margin-top: 15px;
+  }
+
+  button {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 536px) {
+  .character-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .character-item {
+    width: 90%;
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 400px) {
+  .app-title {
+    font-size: 1.5em;
+    padding: 0 30px;
+  }
+}
