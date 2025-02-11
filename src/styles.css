@@ -39,7 +39,7 @@ body {
   border: none;
   padding: 10px;
   border-radius: 10px;
-  cursor: pointer;
+  cursor: pointer !important;
   transition: background-color 0.3s;
 }
 
@@ -54,11 +54,17 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   max-width: 730px;
   margin: 0;
   margin-bottom: 0px;
   margin-left: 0px;
   margin-bottom: 30px;
+}
+
+/* Center the buttons when in the Character Detail Page */
+.detail-page .nav-container {
+  justify-content: center;
 }
 
 .house-selector select {
@@ -123,7 +129,7 @@ button:hover {
 }
 
 .character-item {
-  cursor: pointer;
+  cursor: pointer !important;
   transition: transform 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
@@ -143,6 +149,7 @@ button:hover {
   transform: scale(1.05);
   box-shadow: 0px 0px 12px rgba(250, 232, 188, 0.51);
   border: 2px solid #f0c75eeb;
+  cursor: pointer;
 }
 
 .character-item img {

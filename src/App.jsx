@@ -85,27 +85,27 @@ export default function App() {
   return (
     <FavoritesContext.Provider value={{ favorites, toggleFavorite }}>
       <HouseContext.Provider value={{ house, setHouse }}>
-        <div className="app">
-          {/* Title moved to the top */}
+      <div className={`app ${view === "details" ? "detail-page" : ""}`}>
+
           <h1 className="app-title">The Harry Potter Mischief Managed</h1>
 
-          {/* Navigation bar with buttons and house selector */}
+          {/* Menu nav buttons */}
           <div className="nav-container">
             <div className="nav-left">
               <button onClick={() => setView("characters")}>Characters</button>
               <button onClick={() => setView("spells")}>Spells</button>
             </div>
-            <div className="nav-right">
-              <HouseSelector />
-            </div>
+            {view !== "details" && (
+              <div className="nav-right">
+                <HouseSelector />
+              </div>
+            )}
           </div>
 
           {/* Characters header and House Selector */}
           {view === "characters" && (
             <div className="character-list-container">
-              {/* Single centered "Characters" title */}
               <h2 className="characters-title">Characters</h2>
-
               <CharacterList
                 characters={paginatedCharacters}
                 onSelect={(char) => {
