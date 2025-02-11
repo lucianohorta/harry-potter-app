@@ -80,7 +80,7 @@ export default function App() {
     startIndex,
     startIndex + charactersPerPage
   );
-
+  
 
   return (
     <FavoritesContext.Provider value={{ favorites, toggleFavorite }}>
@@ -133,6 +133,13 @@ export default function App() {
   );
 }
 
+// Capitalize Words
+function capitalizeWords(str) {
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
+}
 
 // Characters List
 function CharacterList({ characters, onSelect }) {
@@ -149,7 +156,7 @@ function CharacterList({ characters, onSelect }) {
           >
             <img src={char.image || "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"} alt={char.name} />
             <div className="character-title">
-              <p> {char.name} {char.house ? `(${char.house})` : ""} </p>
+              <p>{capitalizeWords(char.name)} {char.house ? `(${capitalizeWords(char.house)})` : ""}</p>
               <button 
                 className={`favorite-button ${favorites.includes(char.id) ? "active" : ""}`}
                 onClick={(e) => { e.stopPropagation();  toggleFavorite(char.id); }} >
@@ -185,13 +192,13 @@ function Pagination({
 function CharacterDetail({ character, setView }) {
   return (
     <div className="character-detail">
-      <h2>{character.name}</h2>
+      <h2>{capitalizeWords(character.name)}</h2>
       <img src={character.image} alt={character.name} />
       <div className="character-info">
-        <p><strong>House:</strong> {character.house || "Unknown"}</p>
-        <p><strong>Species:</strong> {character.species}</p>
-        <p><strong>Patronus:</strong> {character.patronus || "Unknown"}</p>
-        <p><strong>Ancestry:</strong> {character.ancestry}</p>
+        <p><strong>House:</strong> {character.house ? capitalizeWords(character.house) : "Unknown"}</p>
+        <p><strong>Species:</strong> {capitalizeWords(character.species)}</p>
+        <p><strong>Patronus:</strong> {character.patronus ? capitalizeWords(character.patronus) : "Unknown"}</p>
+        <p><strong>Ancestry:</strong> {character.ancestry ? capitalizeWords(character.ancestry) : "Unknown"}</p>
       </div>
       <button onClick={() => setView("characters")}>Go Back</button>
     </div>
