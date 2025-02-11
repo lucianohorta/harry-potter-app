@@ -1,8 +1,14 @@
-# React + Vite
+# Harry Potter API 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- This app fetches data from the Harry Potter API to show all the characters.
+- It includes a filter to select the house and a favorite option (that saves the favorited character to the localStorage).
+- It also shows all the Spells in a separate page.
+<br>
+You can access this in https://harry-potter-app-neon.vercel.app/
 
-Currently, two official plugins are available:
+### Desktop:  
+<img src="https://raw.githubusercontent.com/lucianohorta/harry-potter-app/refs/heads/main/desktop.png">
+<br>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Mobile:  
+<img src="https://raw.githubusercontent.com/lucianohorta/harry-potter-app/refs/heads/main/mobile.png" width="600">
