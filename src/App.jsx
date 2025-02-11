@@ -187,10 +187,12 @@ function CharacterDetail({ character, setView }) {
     <div className="character-detail">
       <h2>{character.name}</h2>
       <img src={character.image} alt={character.name} />
-      <p><strong>House:</strong> {character.house || "Unknown"}</p>
-      <p><strong>Species:</strong> {character.species}</p>
-      <p><strong>Patronus:</strong> {character.patronus || "Unknown"}</p>
-      <p><strong>Ancestry:</strong> {character.ancestry}</p>
+      <div className="character-info">
+        <p><strong>House:</strong> {character.house || "Unknown"}</p>
+        <p><strong>Species:</strong> {character.species}</p>
+        <p><strong>Patronus:</strong> {character.patronus || "Unknown"}</p>
+        <p><strong>Ancestry:</strong> {character.ancestry}</p>
+      </div>
       <button onClick={() => setView("characters")}>Go Back</button>
     </div>
   );

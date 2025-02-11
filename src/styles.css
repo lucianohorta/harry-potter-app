@@ -70,10 +70,6 @@ body {
   background-color: #f0c75e;
 }
 
-.nav-left {
-  margin-left: 15px;
-}
-
 .nav-right {
   display: flex;
   align-items: center;
@@ -164,8 +160,7 @@ button:hover {
   justify-content: center;
   flex-grow: 1;
   font-size: 16px;
-  font-weight: bold;
-  margin: 9px 0;
+  margin: 9px 10px;
   text-align: center;
   line-height: 1.3em;
 }
@@ -181,6 +176,12 @@ button:hover {
   border-radius: 20px;
 }
 
+.character-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
 .character-detail img {
   width: 250px;
   height: auto;
@@ -189,6 +190,17 @@ button:hover {
   margin: 20px auto;
   max-height: 350px;
   object-fit: cover;
+  max-width: 100%;
+  height: auto;
+}
+
+.character-info {
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+  margin-top: -10px;
+  margin-left: 60px;
+  margin-bottom: 20px;
 }
 
 .spell-list {
@@ -259,6 +271,11 @@ button:hover {
 
   button {
     padding: 10px;
+  }
+}
+@media (min-width: 600px) {
+  .nav-left {
+    margin-left: 15px;
   }
 }
 
