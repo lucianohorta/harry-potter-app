@@ -20,6 +20,20 @@ export default function App() {
   const [spells, setSpells] = useState([]);
 
 
+  // Dynamic Page Titles
+  useEffect(() => {
+    if (view === "characters") {
+      document.title = "Harry Potter Mischief Managed";
+    } else if (view === "details") {
+      document.title = "Character Details";
+    } else if (view === "spells") {
+      document.title = "Spells";
+    } else {
+      document.title = "Harry Potter Mischief Managed";
+    }
+  }, [view]);
+
+
   // Pagination state
   const [currentPage, setCurrentPage] = useState(1);
   const charactersPerPage = 12; // Show 12 characters per page
